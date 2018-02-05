@@ -75,7 +75,7 @@
         }
 
         .paralsec {
-            background-image: url("images/spalek_medium.jpg");
+            background-image: url("images/rekovice_sm.jpg");
         }
 
         .jumbotron {
@@ -87,6 +87,14 @@
             position: absolute;
             top: 50px;
             left: 50px;
+        }
+
+        .before-after {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            max-height: 400px;
+            max-width: 90%;
         }
 
     </style>
@@ -180,21 +188,59 @@
         Po kliknutí na mapu se vám načte seznam míst, kde se bude svatba konat a kde můžete strávit následující dny
         prodlouženého týdne.
     </div>
-    <br>
+    <div class="row">
+        <div id="map-container" class="container" align="container-fluid"></div>
+    </div>
+    <hr>
+
+    <h2 class="row">Těšíme se na vás</h2>
+    <div class="row" height="200px">
+        <div class="col-6"><img id="adela_swap" class="before-after" src="images/adel_before.jpg"
+                                data-src-after="images/adel_after.jpg"></div>
+        <div class="col-6"><img id="vojta_swap" class="before-after" src="images/vojta_before.jpg"
+                                data-src-after="images/vojta_after.jpg"></div>
+    </div>
 
 </div>
 
-<div id="map-container" class="container" align="container-fluid">
-</div>
 
 <script>
+    swapped = false;
+
     $('#map-container').on("click", function () {
         var mapContainer = $('#map-container');
 
-        mapContainer.unbind()
+        mapContainer.unbind();
         mapContainer.html(
             '<iframe style="min-width: 400px; width: 100%; height: 400px;" src="https://www.google.com/maps/d/embed?mid=1V1CZHSbIdE1oyAuwLpOIJXcpSx9_tMqc&hl=cs"></iframe>'
         ).css("background-image", "none")
+    });
+
+    var sourceSwap = function (self) {
+        var newSource = self.data('src-after');
+        self.data('src-after', self.attr('src'));
+        self.attr('src', newSource);
+    };
+
+    var sourceSwapHover = function () {
+        var self = $(this);
+        sourceSwap(self);
+    };
+
+    $('img#adela_swap').hover(sourceSwapHover, sourceSwapHover);
+    $('img#vojta_swap').hover(sourceSwapHover, sourceSwapHover);
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() === $(document).height()) {
+            sourceSwap($('img#adela_swap'));
+            sourceSwap($('img#vojta_swap'));
+            swapped = true;
+
+        } else if (swapped) {
+            sourceSwap($('img#adela_swap'));
+            sourceSwap($('img#vojta_swap'));
+            swapped = false;
+        }
     });
 </script>
 
