@@ -14,7 +14,7 @@
     <style>
         #map-container {
             height: 400px;
-            background-image: url("images/mapa_nahled_blue.png");
+            background-image: url("images/mapa_nahled_blue.jpg");
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -46,7 +46,7 @@
             font-size: 20px;
         }
 
-        h1, h2 {
+        h1, h2, .fancy-font {
             font-family: 'Amatic SC', cursive;
             font-weight: bold;
         }
@@ -95,6 +95,10 @@
             display: block;
             max-height: 400px;
             max-width: 90%;
+        }
+
+        .borderless td, .borderless th {
+            border: none;
         }
 
     </style>
@@ -161,16 +165,30 @@
 
     <!--&#x26F0;-->
     <h2 class="row">Kdy a kde?</h2>
-    Svatba proběhne 5.Května 2018 v malebných Beskydech.
-    <ul>
-        <li><b>Obřad:</b> Lurdská kaple</li>
-        <li><b>Hostina:</b> Hotel Rekovice, Trojanovice 2</li>
-    </ul>
-    Konkrétní časy a program upřesníme s blížícím se termínem svatby.
+    <table class="table borderless">
+        <tbody>
+        <tr>
+            <td class="fancy-font">KDY:</td>
+            <td>5.5. 2018</td>
+        </tr>
+        <tr>
+            <td class="fancy-font">OBŘAD:</td>
+            <td>Kostel sv. Jana Křtitele, Frenštátě pod Radhoštěm</td>
+        </tr>
+        <tr>
+            <td class="fancy-font">HOSTINA:</td>
+            <td>Hotel Rekovice, Trojanovice 2</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        Konkrétní časy a program upřesníme s blížícím se termínem svatby.
+    </div>
+
     <hr>
 
     <!--&#x1F389;-->
-    <h2 class="row">Program </h2>
+    <h2 class="row">Program</h2>
     <div class="row">Stay tuned. Program doplníme s blížícím se datem.</div>
     <hr>
 
@@ -181,6 +199,20 @@
         schopné pojmout.
         Když nám dáte vědět jestli dorazíte, tak my vám zajístíme místo, ať to máte bez starostí.
     </div>
+
+    <table class="table borderless">
+        <tbody>
+        <tr>
+            <td class="fancy-font">Hotel Bartoš</td>
+            <td><a href="http://www.hotelbartos.cz/">http://www.hotelbartos.cz/</a></td>
+        </tr>
+        <tr>
+            <td class="fancy-font">Liščí mlýn</td>
+            <td><a href="http://www.liscimlyn.cz/cenik.html">http://www.liscimlyn.cz/</a></td>
+        </tr>
+        </tbody>
+    </table>
+
     <hr>
 
     <h2 class="row">Mapa</h2>
@@ -201,6 +233,10 @@
                                 data-src-after="images/vojta_after.jpg"></div>
     </div>
 
+    <hr>
+
+    <p style="text-align: center">With love &#x1F499; by V&A.</p>
+
 </div>
 
 
@@ -212,7 +248,7 @@
 
         mapContainer.unbind();
         mapContainer.html(
-            '<iframe style="min-width: 400px; width: 100%; height: 400px;" src="https://www.google.com/maps/d/embed?mid=1V1CZHSbIdE1oyAuwLpOIJXcpSx9_tMqc&hl=cs"></iframe>'
+            '<iframe style="min-width: 250px; width: 100%; height: 400px;" src="https://www.google.com/maps/d/embed?mid=1V1CZHSbIdE1oyAuwLpOIJXcpSx9_tMqc&hl=cs"></iframe>'
         ).css("background-image", "none")
     });
 
@@ -230,12 +266,13 @@
     $('img#adela_swap').hover(sourceSwapHover, sourceSwapHover);
     $('img#vojta_swap').hover(sourceSwapHover, sourceSwapHover);
 
-    $(window).scroll(function () {
-        if ($(window).scrollTop() + $(window).height() === $(document).height()) {
-            sourceSwap($('img#adela_swap'));
-            sourceSwap($('img#vojta_swap'));
-            swapped = true;
-
+    $(document).scroll(function () {
+        if (($(document).height() - $(window).scrollTop() - $(window).height()) < 20) {
+            if (!swapped) {
+                sourceSwap($('img#adela_swap'));
+                sourceSwap($('img#vojta_swap'));
+                swapped = true;
+            }
         } else if (swapped) {
             sourceSwap($('img#adela_swap'));
             sourceSwap($('img#vojta_swap'));
@@ -243,14 +280,6 @@
         }
     });
 </script>
-
-<hr>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 text-center"><p>Konec!</p></div>
-    </div>
-</div>
 
 </body>
 </html>
