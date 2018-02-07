@@ -66,20 +66,17 @@
         }
 
         #parallax {
+            height: 100%;
+
             background-image: url("images/rekovice_sm.jpg");
-
-            min-height: 100%;
-
-            background-position-x: 50%;
-            background-position-y: 50%;
-
+            background-position: center 60%;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
         .parallax-parent {
             width: 100%;
-            height: 600px;
+            height: 450px;
         }
 
         h1 {
@@ -99,6 +96,11 @@
 
         .borderless td, .borderless th {
             border: none;
+        }
+
+        #map {
+            height: 300px;
+            width: 100%;
         }
 
     </style>
@@ -123,7 +125,7 @@
 <nav class="navbar navbar-light fixed-top">
     <div class="title col-xs-12 col-md-6 order-md-2 order-1">Svatba Adélky a Vojty</div>
     <div class="info col-6 col-md-3 order-md-1 order-2" id="days">Bude</div>
-    <div class="info col-6 col-md-3 order-md-3 order-2">v Rekovicích</div>
+    <div class="info col-6 col-md-3 order-md-3 order-2" id="place">v Rekovicích</div>
 </nav>
 
 <div class="parallax-parent">
@@ -135,10 +137,9 @@
 <script>
     $(window).bind("resize scroll", function (e) {
         const move = $(window).scrollTop() / $(document).height();
+        const pos = 60 - 110 * move;
 
         $("#parallax").css("background-position-y", pos + "%");
-        console.log(move);
-        console.log(e)
     });
 </script>
 
@@ -152,9 +153,6 @@
         svobody.
     </div>
     <hr>
-
-    <!--adelkavojta.family-->
-    <!--adelkavojta.family-->
 
     <!--&#x26F0;-->
     <h2 class="row">Kdy a kde?</h2>
@@ -213,24 +211,22 @@
         Po kliknutí na mapu se vám načte seznam míst, kde se bude svatba konat a kde můžete strávit následující dny
         prodlouženého týdne.
     </div>
-    <div class="row">
-        <div id="map-container" class="container" align="container-fluid"></div>
-    </div>
+    <div id="map" class="container" align="container-fluid"></div>
     <hr>
 
     <h2 class="row">Těšíme se na vás</h2>
     <div class="row" height="200px">
         <div class="col-6"><img id="adela_swap" class="before-after" src="images/adel_before.jpg"
-                                data-src-after="images/adel_after.jpg"></div>
+                                data-after-src="images/adel_after.jpg"></div>
         <div class="col-6"><img id="vojta_swap" class="before-after" src="images/vojta_before.jpg"
-                                data-src-after="images/vojta_after.jpg"></div>
+                                data-after-src="images/vojta_after.jpg"></div>
     </div>
 
-    <div class="row easteregg">Překvápko - hejbeme se!</div>
+    <div id="easteregg" class="row easteregg">Překvápko - hejbeme se!</div>
 
     <hr>
 
-    <p style="text-align: center">With love &#x1F499; by V&A.</p>
+    <p id="with-love" style="text-align: center">With love &#x1F499; by V&A.</p>
 
 </div>
 
@@ -255,20 +251,22 @@
 
 
 <script>
+    $.preloadImages = function () {
+        for (var i = 0; i < arguments.length; i++) {
+            $("<img />").attr("src", arguments[i]);
+        }
+    };
+
+    $.preloadImages(
+        "images/adel_before.jpg", "images/adel_after.jpg",
+        "images/vojta_before.jpg", "images/vojta_after.jpg"
+    );
+
     swapped = false;
 
-    $('#map-container').on("click", function () {
-        var mapContainer = $('#map-container');
-
-        mapContainer.unbind();
-        mapContainer.html(
-            '<iframe style="min-width: 250px; width: 100%; height: 400px;" src="https://www.google.com/maps/d/embed?mid=1V1CZHSbIdE1oyAuwLpOIJXcpSx9_tMqc&hl=cs"></iframe>'
-        ).css("background-image", "none")
-    });
-
     var sourceSwap = function (self) {
-        var newSource = self.data('src-after');
-        self.data('src-after', self.attr('src'));
+        var newSource = self.data('after-src');
+        self.data('after-src', self.attr('src'));
         self.attr('src', newSource);
     };
 
@@ -280,8 +278,14 @@
     $('img#adela_swap').hover(sourceSwapHover, sourceSwapHover);
     $('img#vojta_swap').hover(sourceSwapHover, sourceSwapHover);
 
-    $(document).scroll(function () {
-        if (($(document).height() - $(window).scrollTop() - $(window).height()) < 20) {
+    $(document).on("move scroll", function (e) {
+        const windowHeight = (typeof window.innerHeight !== 'undefined') ?
+            Math.max(window.innerHeight, $(window).height()) :
+            $(window).height();
+
+        const scrollBottom = $(document).height() - $(window).scrollTop() - windowHeight;
+
+        if (scrollBottom < 80) {
             if (!swapped) {
                 sourceSwap($('img#adela_swap'));
                 sourceSwap($('img#vojta_swap'));
@@ -292,7 +296,32 @@
             sourceSwap($('img#vojta_swap'));
             swapped = false;
         }
+
+        $("#easteregg").text("Překvápko - hejbeme se! " + scrollBottom);
     });
+</script>
+
+<script>
+
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 11,
+            center: {lat: 49.5381, lng: 18.1934}
+        });
+
+        const ctaLayer = new google.maps.KmlLayer({
+            url: 'https://www.google.com/maps/d/u/0/kml?' +
+            'hl=cs&' +
+            'mid=1V1CZHSbIdE1oyAuwLpOIJXcpSx9_tMqc&' +
+            'nl=1&' +
+            'cid=mp&' +
+            'cv=RyEIkmupgKQ.cs.',
+            map: map
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtKLruCdQeXdvC8ladJk7IZaJCZf98nVY&callback=initMap">
 </script>
 
 </body>
