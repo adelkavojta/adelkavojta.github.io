@@ -63,7 +63,6 @@
             font-size: larger;
         }
 
-
         #with-love {
             text-align: center;
         }
@@ -109,8 +108,8 @@
         }
 
         .timeline {
-            height: 70px;
-            padding-bottom: 25px;
+            height: 85px;
+            padding-bottom: 40px;
         }
 
         #line {
@@ -176,7 +175,7 @@
     <div class="title col-xs-12 col-md-6 order-md-2 order-1">Adélka & Vojta</div>
     <div class="info col-6 col-md-3 order-md-1 order-2" id="days">Bude</div>
     <div class="info col-6 col-md-3 order-md-3 order-2" id="place">
-        <a class="info" href="https://goo.gl/maps/vATFuKo6oyt">v Rekovicích</a>
+        <a class="info" href="https://goo.gl/maps/vATFuKo6oyt" target="_blank">v Rekovicích</a>
     </div>
 </nav>
 
@@ -202,12 +201,20 @@
     <table class="table borderless">
         <tbody>
         <tr>
-            <td class="fancy-font">Očekávaný příjezd</td>
-            <td>5. května 2018 ve 12:00</td>
+            <td class="fancy-font">Přivítání</td>
+            <td>5. května 2018 ve 12:00 u restaurace</td>
         </tr>
         <tr>
-            <td class="fancy-font">Hostina a obřad</td>
-            <td>Hotel Rekovice, Trojanovice 2</td>
+            <td class="fancy-font">Obřad</td>
+            <td>Zvonička, Horečky</td>
+        </tr>
+        <tr>
+            <td class="fancy-font">Hostina</td>
+            <td>
+                <a href="https://goo.gl/maps/vATFuKo6oyt" target="_blank" style="color: #394046">
+                    Restaurace Rekovice, Trojanovice 2
+                </a>
+            </td>
         </tr>
         <tr>
             <td class="fancy-font">Dresscode</td>
@@ -226,7 +233,7 @@
     <div class="row timeline">
         <div id="line"></div>
     </div>
-    <div id="timeline-desc" class="center-block" style="text-align: center; font-size: smaller;">
+    <div id="timeline-desc" class="center-block" style="text-align: center;">
         (pro bližší info najeďte na ikonku)
     </div>
 
@@ -235,7 +242,7 @@
             [5, "12:00", "images/car.svg",
                 "Plánovaný příjezd do rekovic. Kdo dorazí pozdě, přijde o svačinku. Do oběda dlouho!"],
             [15, "13:00", "images/wedding-couple.svg",
-                "Tam ta da dáááá, tam ta da dá!"],
+                "Tam tam ta dáááá, tam tam ta dá!"],
             [25, "14:00", "images/photo-camera.svg",
                 "Budou dva fotografové, tak snad to zabaví všechny hosty!"],
             [35, "15:00", "images/cutlery.svg",
@@ -280,21 +287,22 @@
         <tbody>
         <tr>
             <td class="fancy-font">Penzion Liščí mlýn</td>
-            <td><a href="http://www.liscimlyn.cz/cenik.html" target="_blank">http://www.liscimlyn.cz/</a></td>
+            <td><a href="http://www.liscimlyn.cz/cenik.html" target="_blank">liscimlyn.cz</a></td>
         </tr>
         <tr>
             <td class="fancy-font">Hotel**** Bartoš</td>
-            <td><a href="http://www.hotelbartos.cz/ubytovani-beskydy" target="_blank">http://www.hotelbartos.cz/</a>
+            <td><a href="http://www.hotelbartos.cz/ubytovani-beskydy" target="_blank">hotelbartos.cz</a>
             </td>
         </tr>
         <tr>
-            <td class="fancy-font">Penzion Planiska (min 3 noci)</td>
-            <td><a href="http://www.penzionplaniska.cz/ubytovani/" target="_blank">http://www.penzionplaniska.cz/</a>
+            <td class="fancy-font">Penzion Planiska</td>
+            <td>
+                <a href="http://www.penzionplaniska.cz/ubytovani/" target="_blank">penzionplaniska.cz</a> (min 3 noci)
             </td>
         </tr>
         <tr>
-            <td class="fancy-font">Stanování (punk)</td>
-            <td>Pro odvážné romantiky! Prý si můžeme postavit stany u hotelu na přilehlé louce!</td>
+            <td class="fancy-font">Stanování (romantika)</td>
+            <td>Můžete si postavit stany u hotelu na přilehlé louce!</td>
         </tr>
         </tbody>
     </table>
@@ -313,16 +321,15 @@
     </div>
     <br>
     <div id="map" class="container" align="container-fluid"></div>
-    <hr>
 
     <hr>
     <h2 class="row">Svatební dary</h2>
     <div class="row">
-        Primárně budeme moc rádi, když dorazíte a my budeme moct strávit ten důležitý okamžik s vámi.
-        Pokud zvažujete, co nám dát, tak budeme moc rádi, když nám pomůžete umořit náklady na svatbu.
-        Hmotné věci aktuálně nepotřebujeme, za ty 4 roky máme krámů až moc.
+        Primárně budeme moc rádi, když dorazíte.
+        Pokud zvažujete, co nám dát, tak nám prosím přispějte nějakou korunou.
+        Hmotné věci aktuálně nepotřebujeme. Za těch skoro 5 let máme krámů dost.
     </div>
-    <br>
+    <hr>
 
     <h2 class="row">Těšíme se na vás</h2>
     <div class="row" height="200px">
@@ -337,9 +344,9 @@
 
     <div class="row">
         <div id="easteregg" class="col easteregg" style="text-align: left">Překvápko - hejbeme se!</div>
-        <div class="col" id="with-love">With love &#x1F499; by V&A.</div>
+        <div class="col" id="with-love">With &#x1F499; by V&A.</div>
         <div class="col" style="font-size: small; color: lightgray" style="text-align: right">
-            Icons were downloaded from <a href="http://www.flaticon.com">www.flaticon.com</a>
+            Icons by <a href="http://www.flaticon.com" target="_blank">flaticon.com</a>
         </div>
     </div>
 
@@ -409,7 +416,6 @@
 </script>
 
 <script>
-
     function initMap() {
         const map = new google.maps.Map(document.getElementById('map'), {
             zoom: 11,
@@ -417,16 +423,11 @@
         });
 
         const ctaLayer = new google.maps.KmlLayer({
-            url: 'https://www.google.com/maps/d/u/0/kml?' +
-            'hl=cs&' +
-            'mid=1V1CZHSbIdE1oyAuwLpOIJXcpSx9_tMqc&' +
-            'nl=1&' +
-            'cid=mp&' +
-            'cv=RyEIkmupgKQ.cs.',
-            map: map
+            url: 'https://www.google.com/maps/d/kml?hl=cs&mid=1V1CZHSbIdE1oyAuwLpOIJXcpSx9_tMqc', map: map
         });
     }
 </script>
+
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtKLruCdQeXdvC8ladJk7IZaJCZf98nVY&callback=initMap">
 </script>
