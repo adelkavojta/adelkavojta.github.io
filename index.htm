@@ -8,18 +8,23 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Sacramento|Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 
 
     <style>
         @font-face {
-            font-family: "Condensed Light Typewriter";
-            src: url("fonts/AmericanTypewriter-CondensedLight.ttf")
+            font-family: "Condensed Typewriter";
+            src: url("fonts/AmericanTypewriter-Condensed.ttf")
         }
 
         * {
             font-family: 'Source Sans Pro', sans-serif;
             color: #394046;
+        }
+
+        a:hover {
+            color: #CCC;
+            text-decoration: none;
         }
 
         .easteregg {
@@ -50,10 +55,14 @@
             font-size: 20px;
         }
 
-        h1, h2, .fancy-font, .title, .info, #with-love {
-            font-family: 'Condensed Light Typewriter', 'courier', sans-serif;
-            font-weight: bold;
+        h1, h2, h3, h4, .fancy-font, .title, .info, #with-love {
+            font-family: 'Condensed Typewriter', 'courier', serif;
         }
+
+        .fancy-font {
+            font-size: larger;
+        }
+
 
         #with-love {
             text-align: center;
@@ -105,7 +114,7 @@
         }
 
         #line {
-            height: 2px;
+            height: 1px;
             width: 95%;
             background: black;
             border-radius: 2px;
@@ -166,7 +175,9 @@
 <nav class="navbar navbar-light fixed-top">
     <div class="title col-xs-12 col-md-6 order-md-2 order-1">Adélka & Vojta</div>
     <div class="info col-6 col-md-3 order-md-1 order-2" id="days">Bude</div>
-    <div class="info col-6 col-md-3 order-md-3 order-2" id="place">v Rekovicích</div>
+    <div class="info col-6 col-md-3 order-md-3 order-2" id="place">
+        <a class="info" href="https://goo.gl/maps/vATFuKo6oyt">v Rekovicích</a>
+    </div>
 </nav>
 
 <div class="parallax-parent">
@@ -200,7 +211,7 @@
         </tr>
         <tr>
             <td class="fancy-font">Dresscode</td>
-            <td>Smart casual urban folklór - barvy jarní louky</td>
+            <td>Smart casual, Urban folklór, Barvy jarní louky</td>
         </tr>
         </tbody>
     </table>
@@ -208,42 +219,55 @@
     <hr>
 
     <h2 class="row">Harmonogram</h2>
+    <div class="row">Velmi idealistický rozpis událostí:</div>
+    <br>
+
+
     <div class="row timeline">
-        <div id="line">
-            <div class="tick" style="left: 5%;">
-                <img class="icon" src="images/car.svg">
-                <div class="time">12:00</div>
-            </div>
-            <div class="tick" style="left: 15%;">
-                <img class="icon" src="images/wedding-couple.svg">
-                <div class="time">13:00</div>
-            </div>
-            <div class="tick" style="left: 25%;">
-                <img class="icon" src="images/photo-camera.svg">
-                <div class="time">14:00</div>
-            </div>
-            <div class="tick" style="left: 35%;">
-                <img class="icon" src="images/cutlery.svg">
-                <div class="time">15:00</div>
-            </div>
-            <div class="tick" style="left: 45%;">
-                <img class="icon" src="images/violin.svg">
-                <div class="time">16:00</div>
-            </div>
-            <div class="tick" style="left: 55%;">
-                <img class="icon" src="images/cake.svg">
-                <div class="time">17:00</div>
-            </div>
-            <div class="tick" style="left: 65%;">
-                <img class="icon" src="images/food.svg">
-                <div class="time">18:00</div>
-            </div>
-            <div class="tick" style="left: 82%;">
-                <img class="icon" src="images/man-in-a-party-dancing-with-people.svg">
-                <div class="time">party hard</div>
-            </div>
-        </div>
+        <div id="line"></div>
     </div>
+    <div id="timeline-desc" class="center-block" style="text-align: center; font-size: smaller;">
+        (pro bližší info najeďte na ikonku)
+    </div>
+
+    <script>
+        const data = [
+            [5, "12:00", "images/car.svg",
+                "Plánovaný příjezd do rekovic. Kdo dorazí pozdě, přijde o svačinku. Do oběda dlouho!"],
+            [15, "13:00", "images/wedding-couple.svg",
+                "Tam ta da dáááá, tam ta da dá!"],
+            [25, "14:00", "images/photo-camera.svg",
+                "Budou dva fotografové, tak snad to zabaví všechny hosty!"],
+            [35, "15:00", "images/cutlery.svg",
+                "Konečně jídlo!"],
+            [45, "16:00", "images/violin.svg",
+                "Bude nám tam hrát cimbálka!"],
+            [55, "17:00", "images/cake.svg",
+                "Čas na sladké!"],
+            [65, "18:00", "images/food.svg",
+                "Začíná raut a s ním volná zábava..."],
+            [82, "party hard", "images/man-in-a-party-dancing-with-people.svg",
+                "Přijde nám tam zahrát DJ Kuchyňka (jako fakt)"],
+        ];
+
+        for (var i = 0; i < data.length; i++) {
+            const offset = data[i][0];
+            const time = data[i][1];
+            const image = data[i][2];
+            const desc = data[i][3];
+            $("#line").append(
+                '<div id="bubble' + i + '" class="tick" style="left: ' + offset + '%;">' +
+                '<img class="icon" src="' + image + '">' +
+                '<div class="time">' + time + '</div>' +
+                '</div>'
+            );
+
+            $("#bubble" + i).on("click mouseover", function () {
+                $("#timeline-desc").text(desc)
+            })
+        }
+    </script>
+
     <hr>
     <h2 class="row">Ubytování</h2>
     <div class="row">
@@ -255,25 +279,31 @@
     <table class="table borderless">
         <tbody>
         <tr>
-            <td class="fancy-font">Liščí mlýn</td>
-            <td><a href="http://www.liscimlyn.cz/cenik.html">http://www.liscimlyn.cz/</a></td>
+            <td class="fancy-font">Penzion Liščí mlýn</td>
+            <td><a href="http://www.liscimlyn.cz/cenik.html" target="_blank">http://www.liscimlyn.cz/</a></td>
         </tr>
         <tr>
-            <td class="fancy-font">Hotel Bartoš</td>
-            <td><a href="http://www.hotelbartos.cz/">http://www.hotelbartos.cz/</a></td>
+            <td class="fancy-font">Hotel**** Bartoš</td>
+            <td><a href="http://www.hotelbartos.cz/ubytovani-beskydy" target="_blank">http://www.hotelbartos.cz/</a>
+            </td>
         </tr>
         <tr>
-            <td class="fancy-font">Penzion Planiska</td>
-            <td><a href="http://www.penzionplaniska.cz/">http://www.penzionplaniska.cz/</a></td>
+            <td class="fancy-font">Penzion Planiska (min 3 noci)</td>
+            <td><a href="http://www.penzionplaniska.cz/ubytovani/" target="_blank">http://www.penzionplaniska.cz/</a>
+            </td>
         </tr>
         <tr>
-            <td class="fancy-font">Stanování</td>
+            <td class="fancy-font">Stanování (punk)</td>
             <td>Pro odvážné romantiky! Prý si můžeme postavit stany u hotelu na přilehlé louce!</td>
         </tr>
         </tbody>
     </table>
-    Rekovice jsou na kopci nad vesnicí. Pokud nebudete mít s sebou žádného řidiče, tak večer bude zajištěn rozvoz lidí
-    na ubytování.
+
+    <h4 class="row" style="color: crimson">Prosím, dejte nám vědět nejpozději do neděle 11. března!</h4>
+    <div class="row">
+        Rekovice jsou na kopci nad vesnicí. Pokud nebudete mít s sebou žádného řidiče, tak večer bude zajištěn rozvoz
+        lidí na ubytování.
+    </div>
     <hr>
 
     <h2 class="row">Mapa</h2>
@@ -284,6 +314,15 @@
     <br>
     <div id="map" class="container" align="container-fluid"></div>
     <hr>
+
+    <hr>
+    <h2 class="row">Svatební dary</h2>
+    <div class="row">
+        Primárně budeme moc rádi, když dorazíte a my budeme moct strávit ten důležitý okamžik s vámi.
+        Pokud zvažujete, co nám dát, tak budeme moc rádi, když nám pomůžete umořit náklady na svatbu.
+        Hmotné věci aktuálně nepotřebujeme, za ty 4 roky máme krámů až moc.
+    </div>
+    <br>
 
     <h2 class="row">Těšíme se na vás</h2>
     <div class="row" height="200px">
@@ -297,9 +336,11 @@
     <hr>
 
     <div class="row">
-        <div id="easteregg" class="col easteregg">Překvápko - hejbeme se!</div>
+        <div id="easteregg" class="col easteregg" style="text-align: left">Překvápko - hejbeme se!</div>
         <div class="col" id="with-love">With love &#x1F499; by V&A.</div>
-        <div class="col" style="font-size: small; color: lightgray">Icons were downloaded from www.flaticon.com</div>
+        <div class="col" style="font-size: small; color: lightgray" style="text-align: right">
+            Icons were downloaded from <a href="http://www.flaticon.com">www.flaticon.com</a>
+        </div>
     </div>
 
 
@@ -324,8 +365,7 @@
     }
 </script>
 
-
-<script>
+<script async defer>
     $.preloadImages = function () {
         for (var i = 0; i < arguments.length; i++) {
             $("<img />").attr("src", arguments[i]);
@@ -344,14 +384,6 @@
         self.data('after-src', self.attr('src'));
         self.attr('src', newSource);
     };
-
-    var sourceSwapHover = function () {
-        var self = $(this);
-        sourceSwap(self);
-    };
-
-    //    $('img#adela_swap').hover(sourceSwapHover, sourceSwapHover);
-    //    $('img#vojta_swap').hover(sourceSwapHover, sourceSwapHover);
 
     $(document).on("move scroll", function (e) {
         const windowHeight = (typeof window.innerHeight !== 'undefined') ?
