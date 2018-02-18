@@ -13,13 +13,19 @@
 
     <style>
         @font-face {
-            font-family: "AmericanTypewriter-Light";
-            src: url("fonts/AmericanTypewriter-Light.ttf")
+            font-family: "AmericanTypewriter-CondensedLight";
+            src: url("fonts/AmericanTypewriter-CondensedLight.ttf")
         }
 
         .easteregg {
             color: lightgray;
             font-size: small;
+        }
+
+        #with-love {
+            text-align: center;
+            font-family: 'AmericanTypewriter-CondensedLight', 'monospace';
+            font-weight: bold;
         }
 
         #map-container {
@@ -43,21 +49,21 @@
         }
 
         .title {
-            font-family: 'AmericanTypewriter-Light', 'monospace';
+            font-family: 'AmericanTypewriter-CondensedLight', 'monospace';
             font-weight: bold;
             color: #ffffff;
             font-size: 40px;
         }
 
         .info {
-            font-family: 'AmericanTypewriter-Light', 'monospace';
+            font-family: 'AmericanTypewriter-CondensedLight', 'monospace';
             font-weight: bold;
             color: #ffffff;
             font-size: 20px;
         }
 
         h1, h2, .fancy-font {
-            font-family: 'AmericanTypewriter-Light', 'monospace';
+            font-family: 'AmericanTypewriter-CondensedLight', 'monospace';
             font-weight: bold;
         }
 
@@ -108,6 +114,54 @@
             width: 100%;
         }
 
+        .timeline {
+            height: 50px;
+            padding-bottom: 10px;
+            /*display: flex;*/
+            /*justify-content: center;*/
+            /*align-items: center;*/
+        }
+
+        #line {
+            height: 2px;
+            width: 95%;
+            background: black;
+            border-radius: 2px;
+            margin: auto;
+            position: relative;
+        }
+
+        .tick {
+            width: 45px;
+            height: 45px;
+            background: #FFF;
+            border-radius: 22px;
+            position: absolute;
+            bottom: -22px;
+            border: 2px solid black;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+        }
+
+        .time {
+            font-size: smaller;
+            background: #FFF;
+            white-space: nowrap;
+            position: relative;
+            top: 35px;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: 6px;
+            top: 3px;
+        }
     </style>
 
     <title>Adélka & Vojta!</title>
@@ -150,6 +204,45 @@
 
 
 <div class="container">
+
+    <h2 class="row">Harmonogram</h2>
+    <div class="row timeline">
+        <div id="line">
+            <div class="tick" style="left: 5%;">
+                <img class="icon" src="fonts/car.svg">
+                <div class="time">12:00</div>
+            </div>
+            <div class="tick" style="left: 15%;">
+                <img class="icon" src="fonts/wedding-couple.svg">
+                <div class="time">13:00</div>
+            </div>
+            <div class="tick" style="left: 25%;">
+                <img class="icon" src="fonts/photo-camera.svg">
+                <div class="time">14:00</div>
+            </div>
+            <div class="tick" style="left: 35%;">
+                <img class="icon" src="fonts/cutlery.svg">
+                <div class="time">15:00</div>
+            </div>
+            <div class="tick" style="left: 55%;">
+                <img class="icon" src="fonts/cake.svg">
+                <div class="time">17:00</div>
+            </div>
+            <div class="tick" style="left: 65%;">
+                <img class="icon" src="fonts/food.svg">
+                <div class="time">18:00</div>
+            </div>
+            <div class="tick" style="left: 80%;">
+                <img class="icon" src="fonts/man-in-a-party-dancing-with-people.svg">
+                <div class="time">party hard</div>
+            </div>
+
+            <img class="icon" src="fonts/next.svg" style="height: 30px; width: 30px; left: 100%; top: -15px;">
+        </div>
+    </div>
+    <hr>
+
+
     <!--&#x1F602;-->
     <h2 class="row">To to trvalo.</h2>
     <div class="row">
@@ -231,7 +324,7 @@
 
     <hr>
 
-    <p id="with-love" style="text-align: center">With love &#x1F499; by V&A.</p>
+    <p id="with-love">With love &#x1F499; by V&A.</p>
 
 </div>
 
