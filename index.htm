@@ -13,26 +13,18 @@
 
     <style>
         @font-face {
-            font-family: "AmericanTypewriter-CondensedLight";
+            font-family: "Condensed Light Typewriter";
             src: url("fonts/AmericanTypewriter-CondensedLight.ttf")
+        }
+
+        * {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #394046;
         }
 
         .easteregg {
             color: lightgray;
             font-size: small;
-        }
-
-        #with-love {
-            text-align: center;
-            font-family: 'AmericanTypewriter-CondensedLight', 'monospace';
-            font-weight: bold;
-        }
-
-        #map-container {
-            height: 400px;
-            background-image: url("images/mapa_nahled_blue.jpg");
-            background-repeat: no-repeat;
-            background-position: center;
         }
 
         nav {
@@ -41,7 +33,7 @@
             text-align: center;
             padding: 0;
             list-style: none;
-            margin-left: 0px;
+            margin-left: 0;
         }
 
         .navbar {
@@ -49,27 +41,22 @@
         }
 
         .title {
-            font-family: 'AmericanTypewriter-CondensedLight', 'monospace';
-            font-weight: bold;
             color: #ffffff;
             font-size: 40px;
         }
 
         .info {
-            font-family: 'AmericanTypewriter-CondensedLight', 'monospace';
-            font-weight: bold;
             color: #ffffff;
             font-size: 20px;
         }
 
-        h1, h2, .fancy-font {
-            font-family: 'AmericanTypewriter-CondensedLight', 'monospace';
+        h1, h2, .fancy-font, .title, .info, #with-love {
+            font-family: 'Condensed Light Typewriter', 'courier', sans-serif;
             font-weight: bold;
         }
 
-        * {
-            font-family: 'Source Sans Pro', sans-serif;
-            color: #394046;
+        #with-love {
+            text-align: center;
         }
 
         .row {
@@ -79,9 +66,7 @@
         #parallax {
             height: 100%;
 
-            background-image: url("images/rekovice_sm.jpg");
-            background-position: center 60%;
-            background-repeat: no-repeat;
+            background: url("images/rekovice_sm.jpg") no-repeat center 60%;
             background-size: cover;
         }
 
@@ -105,7 +90,7 @@
             max-width: 90%;
         }
 
-        .borderless td, .borderless th {
+        .borderless td, .borderless tr {
             border: none;
         }
 
@@ -115,11 +100,8 @@
         }
 
         .timeline {
-            height: 50px;
-            padding-bottom: 10px;
-            /*display: flex;*/
-            /*justify-content: center;*/
-            /*align-items: center;*/
+            height: 70px;
+            padding-bottom: 25px;
         }
 
         #line {
@@ -164,7 +146,7 @@
         }
     </style>
 
-    <title>Adélka & Vojta!</title>
+    <title>Adélka & Vojta</title>
 </head>
 <body>
 <!-- Optional JavaScript -->
@@ -182,7 +164,7 @@
 
 <!--col-xs-12 col-md-12 col-lg-4-->
 <nav class="navbar navbar-light fixed-top">
-    <div class="title col-xs-12 col-md-6 order-md-2 order-1">Svatba Adélky & Vojty</div>
+    <div class="title col-xs-12 col-md-6 order-md-2 order-1">Adélka & Vojta</div>
     <div class="info col-6 col-md-3 order-md-1 order-2" id="days">Bude</div>
     <div class="info col-6 col-md-3 order-md-3 order-2" id="place">v Rekovicích</div>
 </nav>
@@ -205,110 +187,103 @@
 
 <div class="container">
 
+    <h2 class="row">Základní info</h2>
+    <table class="table borderless">
+        <tbody>
+        <tr>
+            <td class="fancy-font">Očekávaný příjezd</td>
+            <td>5. května 2018 od 12:00</td>
+        </tr>
+        <tr>
+            <td class="fancy-font">Hostina a obřad</td>
+            <td>Hotel Rekovice, Trojanovice 2</td>
+        </tr>
+        <tr>
+            <td class="fancy-font">Dresscode</td>
+            <td>Smart casual urban folklór - barvy jarní louky</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
     <h2 class="row">Harmonogram</h2>
     <div class="row timeline">
         <div id="line">
             <div class="tick" style="left: 5%;">
-                <img class="icon" src="fonts/car.svg">
+                <img class="icon" src="images/car.svg">
                 <div class="time">12:00</div>
             </div>
             <div class="tick" style="left: 15%;">
-                <img class="icon" src="fonts/wedding-couple.svg">
+                <img class="icon" src="images/wedding-couple.svg">
                 <div class="time">13:00</div>
             </div>
             <div class="tick" style="left: 25%;">
-                <img class="icon" src="fonts/photo-camera.svg">
+                <img class="icon" src="images/photo-camera.svg">
                 <div class="time">14:00</div>
             </div>
             <div class="tick" style="left: 35%;">
-                <img class="icon" src="fonts/cutlery.svg">
+                <img class="icon" src="images/cutlery.svg">
                 <div class="time">15:00</div>
             </div>
+            <div class="tick" style="left: 45%;">
+                <img class="icon" src="images/violin.svg">
+                <div class="time">16:00</div>
+            </div>
             <div class="tick" style="left: 55%;">
-                <img class="icon" src="fonts/cake.svg">
+                <img class="icon" src="images/cake.svg">
                 <div class="time">17:00</div>
             </div>
             <div class="tick" style="left: 65%;">
-                <img class="icon" src="fonts/food.svg">
+                <img class="icon" src="images/food.svg">
                 <div class="time">18:00</div>
             </div>
-            <div class="tick" style="left: 80%;">
-                <img class="icon" src="fonts/man-in-a-party-dancing-with-people.svg">
+            <div class="tick" style="left: 82%;">
+                <img class="icon" src="images/man-in-a-party-dancing-with-people.svg">
                 <div class="time">party hard</div>
             </div>
 
-            <img class="icon" src="fonts/next.svg" style="height: 30px; width: 30px; left: 100%; top: -15px;">
+            <img class="icon" src="images/next.svg" style="height: 30px; width: 30px; left: 100%; top: -15px;">
         </div>
     </div>
     <hr>
-
-
-    <!--&#x1F602;-->
-    <h2 class="row">To to trvalo.</h2>
-    <div class="row">
-        No my víme.
-        Ale jsme rádi, že vás můžeme pozvat aby ste se s námi podělili o moment, kdy se před bohem a zákonem vzdáme naší
-        svobody.
-    </div>
-    <hr>
-
-    <!--&#x26F0;-->
-    <h2 class="row">Kdy a kde?</h2>
-    <table class="table borderless">
-        <tbody>
-        <tr>
-            <td class="fancy-font">KDY:</td>
-            <td>5.5. 2018</td>
-        </tr>
-        <tr>
-            <td class="fancy-font">OBŘAD:</td>
-            <td>Kostel sv. Jana Křtitele, Frenštátě pod Radhoštěm</td>
-        </tr>
-        <tr>
-            <td class="fancy-font">HOSTINA:</td>
-            <td>Hotel Rekovice, Trojanovice 2</td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="row">
-        Konkrétní časy a program upřesníme s blížícím se termínem svatby.
-    </div>
-
-    <hr>
-
-    <!--&#x1F389;-->
-    <h2 class="row">Program</h2>
-    <div class="row">Stay tuned. Program doplníme s blížícím se datem.</div>
-    <hr>
-
-    <!--&#x1F3E8;-->
     <h2 class="row">Ubytování</h2>
     <div class="row">
-        Bohužel si nemůžeme dovolit vám všem zaplatit ubytování, ale zajistili jsme dva hotely v okolí, jenž vás budou
-        schopné pojmout.
-        Když nám dáte vědět jestli dorazíte, tak my vám zajístíme místo, ať to máte bez starostí.
+        Když nám dáte vědět, tak v rámci koordinace svatby vám zabookujeme ubytování v jednom z následujících zařízení.
+        Bohužel si nemůžeme dovolit vám všem ubytování zaplatit, ale můžeme se vám alespoň pokusit minimalizovat
+        starosti.
     </div>
-
+    <br>
     <table class="table borderless">
         <tbody>
+        <tr>
+            <td class="fancy-font">Liščí mlýn</td>
+            <td><a href="http://www.liscimlyn.cz/cenik.html">http://www.liscimlyn.cz/</a></td>
+        </tr>
         <tr>
             <td class="fancy-font">Hotel Bartoš</td>
             <td><a href="http://www.hotelbartos.cz/">http://www.hotelbartos.cz/</a></td>
         </tr>
         <tr>
-            <td class="fancy-font">Liščí mlýn</td>
-            <td><a href="http://www.liscimlyn.cz/cenik.html">http://www.liscimlyn.cz/</a></td>
+            <td class="fancy-font">Penzion Planiska</td>
+            <td><a href="http://www.penzionplaniska.cz/">http://www.penzionplaniska.cz/</a></td>
+        </tr>
+        <tr>
+            <td class="fancy-font">Stanování</td>
+            <td>Pro odvážné romantiky! Prý si můžeme postavit stany u hotelu na přilehlé louce!</td>
         </tr>
         </tbody>
     </table>
-
+    Rekovice jsou na kopci nad vesnicí. Pokud nebudete mít s sebou žádného řidiče, tak večer bude zajištěn rozvoz lidí
+    na ubytování.
     <hr>
 
     <h2 class="row">Mapa</h2>
     <div class="row">
-        Po kliknutí na mapu se vám načte seznam míst, kde se bude svatba konat a kde můžete strávit následující dny
-        prodlouženého týdne.
+        Po kliknutí na mapu se vám načte seznam míst, kde se bude svatba konat a kde můžete strávit zbytek
+        prodlouženého víkendu.
     </div>
+    <br>
     <div id="map" class="container" align="container-fluid"></div>
     <hr>
 
@@ -320,11 +295,16 @@
                                 data-after-src="images/vojta_after.jpg"></div>
     </div>
 
-    <div id="easteregg" class="row easteregg">Překvápko - hejbeme se!</div>
+
 
     <hr>
 
-    <p id="with-love">With love &#x1F499; by V&A.</p>
+    <div class="row">
+        <div id="easteregg" class="col easteregg">Překvápko - hejbeme se!</div>
+        <div class="col" id="with-love">With love &#x1F499; by V&A.</div>
+        <div class="col" style="font-size: small; color: lightgray">Icons were downloaded from www.flaticon.com</div>
+    </div>
+
 
 </div>
 
@@ -373,8 +353,8 @@
         sourceSwap(self);
     };
 
-    $('img#adela_swap').hover(sourceSwapHover, sourceSwapHover);
-    $('img#vojta_swap').hover(sourceSwapHover, sourceSwapHover);
+    //    $('img#adela_swap').hover(sourceSwapHover, sourceSwapHover);
+    //    $('img#vojta_swap').hover(sourceSwapHover, sourceSwapHover);
 
     $(document).on("move scroll", function (e) {
         const windowHeight = (typeof window.innerHeight !== 'undefined') ?
@@ -383,7 +363,7 @@
 
         const scrollBottom = $(document).height() - $(window).scrollTop() - windowHeight;
 
-        if (scrollBottom < 80) {
+        if (scrollBottom < 65) {
             if (!swapped) {
                 sourceSwap($('img#adela_swap'));
                 sourceSwap($('img#vojta_swap'));
