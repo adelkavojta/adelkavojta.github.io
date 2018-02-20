@@ -72,6 +72,7 @@
         }
 
         #parallax {
+            position: relative;
             height: 100%;
 
             background: url("images/rekovice_sm.jpg") no-repeat center 60%;
@@ -152,6 +153,26 @@
             left: 6px;
             top: 3px;
         }
+
+        #adelka_bublina {
+            position: absolute;
+            min-width: 100px;
+            max-width: 200px;
+            width: 10%;
+            bottom: -8%;
+            left: 5%;
+        }
+
+        #vojta_bublina {
+            position: absolute;
+            min-width: 120px;
+            max-width: 240px;
+            width: 12%;
+            bottom: -8%;
+            right: 5%;
+            float: right;
+        }
+
     </style>
 
     <title>Adélka & Vojta</title>
@@ -181,8 +202,9 @@
 
 <div class="parallax-parent">
     <div id="parallax">
-        <img src="images/adelka_bublina.svg" style="position: relative; min-width: 70px; width: 5%; top: 73%; left: 39.5%">
-        <img src="images/vojta_bublina.svg" style="position: relative; min-width: 70px; width: 5%; top: 72%; left: 40%">    </div>
+        <img id="adelka_bublina" src="images/adelka_bublina.svg">
+        <img id="vojta_bublina" src="images/vojta_bublina.svg">
+    </div>
 </div>
 
 <br>
@@ -345,7 +367,7 @@
 
     <div class="row">
         <div id="easteregg" class="col easteregg" style="text-align: left">Překvápko - hejbeme se!</div>
-        <div class="col" id="with-love">With &#x1F499; V&A.</div>
+        <div class="col" id="with-love">With &#x1F499;V&A.</div>
         <div class="col" style="font-size: small; color: lightgray" style="text-align: right">
             Icons by <a href="http://www.flaticon.com" target="_blank">flaticon.com</a>
         </div>
