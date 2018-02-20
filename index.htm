@@ -27,9 +27,9 @@
             text-decoration: none;
         }
 
-        .easteregg {
-            color: lightgray;
-            font-size: small;
+        .footer {
+            color: gray;
+            font-size: x-small;
         }
 
         nav {
@@ -41,17 +41,25 @@
             margin-left: 0;
         }
 
-        .navbar {
-            background-color: rgb(3, 37, 102);
+        .wb, .navbar {
+            background-color: #FFF;
+        }
+
+        .wb {
+            padding-right: 0;
+            padding-left: 0;
+            margin-right: auto;
+            margin-left: auto;
+            position: relative;
         }
 
         .title {
-            color: #ffffff;
+            color: #000;
             font-size: 40px;
         }
 
         .info {
-            color: #ffffff;
+            color: #000;
             font-size: 20px;
         }
 
@@ -192,11 +200,15 @@
 <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 
 <!--col-xs-12 col-md-12 col-lg-4-->
-<nav class="navbar navbar-light fixed-top">
+<nav class="wb navbar navbar-light fixed-top">
     <div class="title col-xs-12 col-md-6 order-md-2 order-1">Adélka & Vojta</div>
     <div class="info col-6 col-md-3 order-md-1 order-2" id="days">Bude</div>
     <div class="info col-6 col-md-3 order-md-3 order-2" id="place">
         <a class="info" href="https://goo.gl/maps/vATFuKo6oyt" target="_blank">v Rekovicích</a>
+    </div>
+    <div class="wb col-xs-12 col-md-12 order-md-3 order-3" style="height: 0">
+        <img id="lajna" src="images/lajna.svg"
+             style="width: 100%; height: 50px; position: relative; top: 7px;">
     </div>
 </nav>
 
@@ -242,7 +254,7 @@
         </tr>
         <tr>
             <td class="fancy-font">Dresscode</td>
-            <td>Smart casual, Urban folklór, Barvy jarní louky</td>
+            <td>Smart casual, urban folklór, barvy jarní louky</td>
         </tr>
         </tbody>
     </table>
@@ -250,7 +262,7 @@
     <hr>
 
     <h2 class="row">Harmonogram</h2>
-    <div class="row">Velmi idealistický rozpis událostí:</div>
+    <div class="row">Velmi idealistický rozpis událostí</div>
     <br>
 
 
@@ -331,7 +343,11 @@
         </tbody>
     </table>
 
-    <h4 class="row" style="color: crimson">Prosím, dejte nám vědět nejpozději do neděle 11. března!</h4>
+    <div class="row">
+        <p class="mx-auto" style="color: crimson; font-size: large;">
+            Prosím, dejte nám vědět nejpozději do neděle 11. března!
+        </p>
+    </div>
     <div class="row">
         Rekovice jsou na kopci nad vesnicí. Pokud nebudete mít s sebou žádného řidiče, tak večer bude zajištěn rozvoz
         lidí na ubytování.
@@ -366,10 +382,15 @@
     <hr>
 
     <div class="row">
-        <div id="easteregg" class="col easteregg" style="text-align: left">Překvápko - hejbeme se!</div>
-        <div class="col" id="with-love">With &#x1F499;V&A.</div>
-        <div class="col" style="font-size: small; color: lightgray" style="text-align: right">
-            Icons by <a href="http://www.flaticon.com" target="_blank">flaticon.com</a>
+        <div class="col-4 footer" style="text-align: left">
+            <div class="d-inline">Překvápko... hejbem se!</div>
+            <div class="d-inline" id="easteregg"></div>
+        </div>
+        <div class="col-4" id="with-love">With &#x1F499;V&A.</div>
+        <div class="col-4 footer" style="text-align: center">
+            <div class="row footer">Icons by&nbsp;<a href="http://www.flaticon.com" target="_blank">flaticon.com</a>
+            </div>
+            <div class="row footer" style="text-align: right">Kresby od Johanky!</div>
         </div>
     </div>
 
@@ -434,7 +455,7 @@
             swapped = false;
         }
 
-        $("#easteregg").text("Překvápko - hejbeme se! " + scrollBottom);
+        $("#easteregg").text(scrollBottom);
     });
 </script>
 
