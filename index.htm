@@ -409,21 +409,23 @@
 </div>
 
 <script>
-    var remaining = (function () {
-        var oneDay = 24 * 60 * 60 * 1000;
-        var secondDate = new Date(2018, 5, 5, 12, 0, 0);
-        var firstDate = new Date();
+    const remaining = (function () {
+        const oneDay = 24 * 60 * 60 * 1000;
+        const secondDate = new Date(2018, 5, 5, 12, 0, 0);
+        const firstDate = new Date();
         return Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
     })();
 
-    if (remaining > 4) {
-        $("#days").text("Za " + remaining + " dní")
-    } else if (remaining > 1) {
-        $("#days").text("Za " + remaining + " dny")
+    if (remaining < 0) {
+        $("#days").text("5.května")
     } else if (remaining === 0) {
         $("#days").text("Dnes")
+    } else if (remaining === 1) {
+        $("#days").text("Zítra")
+    } else if (remaining < 5) {
+        $("#days").text("Za " + remaining + " dny")
     } else {
-        $("#days").text("5.května")
+        $("#days").text("Za " + remaining + " dní")
     }
 </script>
 
