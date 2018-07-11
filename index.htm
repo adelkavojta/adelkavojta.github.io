@@ -16,6 +16,8 @@
     <meta name="twitter:description" content="Co je potřeba vědět o svatbě?">
     <meta name="twitter:image" content="http://adelkavojta.info/images/sharing2.jpg">
 
+    <meta name="robots" content="noindex, nofollow, noarchive">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -109,7 +111,7 @@
             position: relative;
             height: 100%;
 
-            background: url("images/rekovice_sm.jpg") no-repeat center 60%;
+            background: url("images/skupinovka_sm.jpg") no-repeat center 60%;
             background-size: cover;
         }
 
@@ -194,7 +196,7 @@
             max-width: 200px;
             width: 10%;
             bottom: -8%;
-            right: 5%;
+            right: 1%;
             float: right;
         }
 
@@ -204,7 +206,7 @@
             max-width: 240px;
             width: 12%;
             bottom: -8%;
-            left: 5%;
+            left: 1%;
         }
 
         .contacts {
@@ -261,6 +263,29 @@
 
 
 <div class="container">
+
+    <h2 class="row">A je to za námi. Všem vám moc děkujeme!</h2>
+    <div class="row">
+        Byl to úžasný den. Pokud si ty chvilky chcete připomenout, tak si můžete prohlédnou fotografie od fotografů.
+    </div>
+    <div class="row">
+        <small>(Pokud se díváte na telefonu, pozor na data)</small>
+    </div>
+    <br>
+    <div class="row">
+        <script async src="https://www.publicalbum.org/js/pa-ins.min.js"></script>
+        <ins class="pa-widget-gallery" style="width:100%;height:480px;"
+             data-url="https://photos.app.goo.gl/FKNhuabC5Am5ca7T8"
+             data-uid="249c6a70445c776e219e63f934b775dfab49af670513e308676e05163484426a"
+             data-delay="2"
+             data-repeat="true"
+        ></ins>
+    </div>
+    <div class="row">
+        Ostatní fotografie můžete najít v&nbsp;<a target="_blank" href="https://photos.app.goo.gl/FKNhuabC5Am5ca7T8"
+                                                  rel="nofollow">tomto albu</a>.
+    </div>
+    <hr>
 
     <h2 class="row">Základní info</h2>
     <table class="table borderless">
@@ -462,9 +487,9 @@
 <script>
     const remaining = (function () {
         const oneDay = 24 * 60 * 60 * 1000;
-        const secondDate = new Date(2018, 4, 5, 12, 0, 0);
-        const firstDate = new Date();
-        return Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
+        const weddingDate = new Date(2018, 4, 5, 12, 0, 0);
+        const currentday = new Date();
+        return Math.round((weddingDate.getTime() - currentday.getTime()) / oneDay);
     })();
 
     if (remaining < 0) {
